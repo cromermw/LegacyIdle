@@ -1,16 +1,33 @@
-[gd_scene load_steps=12 format=3 uid="uid://testy7i32cfh"]
+[gd_scene load_steps=19 format=3 uid="uid://testy7i32cfh"]
 
 [ext_resource type="Script" path="res://user_interface.gd" id="1_7avu0"]
 [ext_resource type="Script" path="res://resources.gd" id="1_bt87s"]
 [ext_resource type="Script" path="res://game.gd" id="1_wwnj8"]
 [ext_resource type="Script" path="res://activities_view.gd" id="3_em3eb"]
-[ext_resource type="Script" path="res://attributes_view.gd" id="4_2l3nd"]
-[ext_resource type="Script" path="res://education_value_label.gd" id="5_fekmh"]
+[ext_resource type="Script" path="res://crafting_experience_value_label.gd" id="5_r66f1"]
 [ext_resource type="Script" path="res://fitness_value_label.gd" id="6_56o1q"]
 [ext_resource type="Script" path="res://karma_value_label.gd" id="7_nesoj"]
 [ext_resource type="Script" path="res://reputation_value_label.gd" id="8_gth0k"]
 [ext_resource type="Script" path="res://wealth_value_label.gd" id="9_ywuh8"]
 [ext_resource type="Script" path="res://wisdom_value_label.gd" id="10_wjenx"]
+[ext_resource type="Script" path="res://gathering_experience_value_label.gd" id="11_hly2g"]
+[ext_resource type="Script" path="res://socializing_experience_value_label.gd" id="12_vqc0p"]
+[ext_resource type="Script" path="res://studying_experience_value_label.gd" id="13_pgquw"]
+[ext_resource type="Script" path="res://trading_experience_value_label.gd" id="14_spt21"]
+[ext_resource type="Script" path="res://training_experience_value_label.gd" id="15_wtx2c"]
+[ext_resource type="Script" path="res://working_experience_value_label_2.gd" id="16_pp6np"]
+[ext_resource type="Script" path="res://worshiping_experience_value_label_2.gd" id="17_yu0bn"]
+
+[sub_resource type="GDScript" id="GDScript_f2f1d"]
+script/source = "class_name LabelEducationValue
+extends Label
+
+func _process(_delta: float) -> void:
+	update_text()	
+	
+func update_text() -> void:
+	text = str(Game.ref.data.education)
+"
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wwnj8")
@@ -26,7 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 3
 script = ExtResource("1_7avu0")
 
 [node name="MainView" type="Control" parent="UserInterface"]
@@ -34,15 +51,9 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="AttributesView" type="Control" parent="UserInterface" node_paths=PackedStringArray("educationValueLabel", "fitnessValueLabel", "karmaValueLabel", "reputationValueLabel", "wealthValueLabel", "wisdomValueLabel")]
+[node name="AttributesView" type="Control" parent="UserInterface"]
+visible = false
 layout_mode = 2
-script = ExtResource("4_2l3nd")
-educationValueLabel = NodePath("HBoxContainer/MarginContainer2/VBoxContainer2/EducationValueLabel")
-fitnessValueLabel = NodePath("HBoxContainer/MarginContainer2/VBoxContainer2/FitnessValueLabel")
-karmaValueLabel = NodePath("HBoxContainer/MarginContainer2/VBoxContainer2/KarmaValueLabel")
-reputationValueLabel = NodePath("HBoxContainer/MarginContainer2/VBoxContainer2/ReputationValueLabel")
-wealthValueLabel = NodePath("HBoxContainer/MarginContainer2/VBoxContainer2/WealthValueLabel")
-wisdomValueLabel = NodePath("HBoxContainer/MarginContainer2/VBoxContainer2/WisdomValueLabel")
 metadata/_tab_index = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/AttributesView"]
@@ -62,27 +73,27 @@ layout_mode = 2
 
 [node name="EducationLabel" type="Label" parent="UserInterface/AttributesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "education"
+text = "education:"
 
 [node name="FitnessLabel" type="Label" parent="UserInterface/AttributesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "fitness"
+text = "fitness:"
 
 [node name="KarmaLabel" type="Label" parent="UserInterface/AttributesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "karma"
+text = "karma:"
 
 [node name="ReputationLabel" type="Label" parent="UserInterface/AttributesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "reputation"
+text = "reputation:"
 
 [node name="WealthLabel" type="Label" parent="UserInterface/AttributesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "wealth"
+text = "wealth:"
 
 [node name="WisdomLabel" type="Label" parent="UserInterface/AttributesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "wisdom"
+text = "wisdom:"
 
 [node name="MarginContainer2" type="MarginContainer" parent="UserInterface/AttributesView/HBoxContainer"]
 layout_mode = 2
@@ -97,7 +108,7 @@ layout_mode = 2
 [node name="EducationValueLabel" type="Label" parent="UserInterface/AttributesView/HBoxContainer/MarginContainer2/VBoxContainer2"]
 layout_mode = 2
 text = "NA"
-script = ExtResource("5_fekmh")
+script = SubResource("GDScript_f2f1d")
 
 [node name="FitnessValueLabel" type="Label" parent="UserInterface/AttributesView/HBoxContainer/MarginContainer2/VBoxContainer2"]
 layout_mode = 2
@@ -129,84 +140,98 @@ visible = false
 layout_mode = 2
 script = ExtResource("3_em3eb")
 activityTimer = NodePath("ActivitiesTimer")
-liveButton = NodePath("MarginContainer/VBoxContainer/LiveButton")
-craftButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CraftButton")
-gatherButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GatherButton")
-socializeButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SocializeButton")
-studyButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StudyButton")
-tradeButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TradeButton")
-trainButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TrainButton")
-workButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/WorkButton")
-worshipButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/WorshipButton")
+liveButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/LiveButton")
+craftButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer/CraftButton")
+gatherButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer/GatherButton")
+socializeButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer/SocializeButton")
+studyButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer/StudyButton")
+tradeButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/TradeButton")
+trainButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/TrainButton")
+workButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/WorkButton")
+worshipButton = NodePath("VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/WorshipButton")
 metadata/_tab_index = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface/ActivitiesView"]
-layout_mode = 1
-offset_right = 181.0
-offset_bottom = 203.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ActivitiesView"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/ActivitiesView/VBoxContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ActivitiesView/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="LiveButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer"]
+[node name="LiveButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "live"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer"]
+[node name="ActivitiesHBoxContainer" type="HBoxContainer" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
 
-[node name="CraftButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="CraftButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "craft"
 
-[node name="GatherButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="GatherButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "gather"
 
-[node name="SocializeButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="SocializeButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "socialize"
 
-[node name="StudyButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="StudyButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "study"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
 
-[node name="TradeButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="TradeButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "trade"
 
-[node name="TrainButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="TrainButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "train"
 
-[node name="WorkButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="WorkButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "work"
 
-[node name="WorshipButton" type="Button" parent="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="WorshipButton" type="Button" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "worship"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UserInterface/ActivitiesView/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="SubActivitiesVBoxContainer" type="VBoxContainer" parent="UserInterface/ActivitiesView/VBoxContainer/MarginContainer2"]
+layout_mode = 2
 
 [node name="ActivitiesTimer" type="Timer" parent="UserInterface/ActivitiesView"]
 
 [node name="TitlesView" type="Control" parent="UserInterface"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
@@ -220,18 +245,114 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/ExperienceView/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CraftingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "crafting experience:"
+
+[node name="GatheringExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "gathering experience:"
+
+[node name="SocializingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "socializing experience:"
+
+[node name="StudyingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "studying experience:"
+
+[node name="TradingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "trading experience:"
+
+[node name="TrainingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "training experience:"
+
+[node name="WorkingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "working experience:"
+
+[node name="WorshipingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "worshiping experience:"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UserInterface/ExperienceView/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="CraftingExperienceValueLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("5_r66f1")
+
+[node name="GatheringExperienceValueLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("11_hly2g")
+
+[node name="SocializingExperienceValueLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("12_vqc0p")
+
+[node name="StudyingExperienceValueLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("13_pgquw")
+
+[node name="TradingExperienceValueLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("14_spt21")
+
+[node name="TrainingExperienceValueLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("15_wtx2c")
+
+[node name="WorkingExperienceValueLabel2" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("16_pp6np")
+
+[node name="WorshipingExperienceValueLabel2" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("17_yu0bn")
+
 [node name="LegacyView" type="Control" parent="UserInterface"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 6
 
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/LiveButton" to="UserInterface/ActivitiesView" method="_on_live_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CraftButton" to="UserInterface/ActivitiesView" method="_on_craft_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GatherButton" to="UserInterface/ActivitiesView" method="_on_gather_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SocializeButton" to="UserInterface/ActivitiesView" method="_on_socialize_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StudyButton" to="UserInterface/ActivitiesView" method="_on_study_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TradeButton" to="UserInterface/ActivitiesView" method="_on_trade_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TrainButton" to="UserInterface/ActivitiesView" method="_on_train_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/WorkButton" to="UserInterface/ActivitiesView" method="_on_work_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/WorshipButton" to="UserInterface/ActivitiesView" method="_on_worship_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/LiveButton" to="UserInterface/ActivitiesView" method="_on_live_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer/CraftButton" to="UserInterface/ActivitiesView" method="_on_craft_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer/GatherButton" to="UserInterface/ActivitiesView" method="_on_gather_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer/SocializeButton" to="UserInterface/ActivitiesView" method="_on_socialize_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer/StudyButton" to="UserInterface/ActivitiesView" method="_on_study_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/TradeButton" to="UserInterface/ActivitiesView" method="_on_trade_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/TrainButton" to="UserInterface/ActivitiesView" method="_on_train_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/WorkButton" to="UserInterface/ActivitiesView" method="_on_work_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/WorshipButton" to="UserInterface/ActivitiesView" method="_on_worship_button_pressed"]
 [connection signal="timeout" from="UserInterface/ActivitiesView/ActivitiesTimer" to="UserInterface/ActivitiesView" method="_on_activities_timer_timeout"]

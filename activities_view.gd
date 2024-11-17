@@ -27,22 +27,18 @@ func get_activity_button_array() -> Array:
 	return button_array
 
 
-
 func begin_timer() -> void:
 	activityTimer.wait_time = 1
 	if activityTimer.is_stopped() == true:
 		activityTimer.start()
-		print("Timer started")
 
 
 func get_activity_button() -> Button:
 	var button_array = get_activity_button_array()
-	var resultbutton : Button 
 	
 	for button in button_array:
 		if button.disabled == true:
-			resultbutton = button
-			return resultbutton
+			return button
 	
 	return liveButton
 
@@ -50,34 +46,44 @@ func get_activity_button() -> Button:
 func reward_random(num_rewards) -> void:
 	var reward : int
 	
-	for iteration in num_rewards:	
+	for iteration in num_rewards:
 		reward = randi_range(0, 5)
 		HandlerResources.ref.create_attribute(reward, 1)
 
 
 func _on_activities_timer_timeout() -> void:
-	var num_rewards = HandlerResources.ref.num_rewards
+	var num_rewards = Game.ref.data.num_rewards
 	var activityButton : Button = get_activity_button()
 
 	reward_random(num_rewards)
-	print("timer finished")
 	
 	if activityButton == craftButton:
-		pass
+		HandlerResources.ref.create_attribute(4, 1)
+		HandlerResources.ref.create_attribute(5, 1)
+		HandlerResources.ref.award_experience(0, 2)
 	elif activityButton == gatherButton:
-		pass
+		HandlerResources.ref.create_attribute(2, 1)
+		HandlerResources.ref.create_attribute(5, 1)
+		HandlerResources.ref.award_experience(1, 2)
 	elif activityButton == socializeButton:
-		pass
+		HandlerResources.ref.create_attribute(0, 2)
+		HandlerResources.ref.award_experience(2, 2)
 	elif activityButton == studyButton:
-		pass
+		HandlerResources.ref.create_attribute(4, 2)
+		HandlerResources.ref.award_experience(3, 2)
 	elif activityButton == tradeButton:
-		pass
+		HandlerResources.ref.create_attribute(3, 1)
+		HandlerResources.ref.create_attribute(5, 1)
+		HandlerResources.ref.award_experience(4, 2)
 	elif activityButton == trainButton:
-		pass
+		HandlerResources.ref.create_attribute(2, 2)
+		HandlerResources.ref.award_experience(5, 2)
 	elif activityButton == workButton:
-		pass
+		HandlerResources.ref.create_attribute(3, 2)
+		HandlerResources.ref.award_experience(6, 2)
 	elif activityButton == worshipButton:
-		pass
+		HandlerResources.ref.create_attribute(1, 2)
+		HandlerResources.ref.award_experience(7, 2)
 	else:
 		pass
 
@@ -97,6 +103,7 @@ func button_pressed(pressed_button) -> void:
 
 
 func _on_live_button_pressed() -> void:
+	begin_timer()
 	button_pressed(liveButton)
 
 
