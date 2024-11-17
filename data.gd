@@ -11,6 +11,6 @@ extends Resource
 @export var wisdom : float = 0
 
 ##multipliers and other upgrades
-@export var cost_multiplier : float = 1
 @export var reward_multiplier : float = 1
 @export var experience_multiplier : float = 1
+@export var num_rewards : int = 2
