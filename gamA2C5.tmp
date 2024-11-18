@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://testy7i32cfh"]
+[gd_scene load_steps=19 format=3 uid="uid://testy7i32cfh"]
 
 [ext_resource type="Script" path="res://scripts/user_interface.gd" id="1_7avu0"]
 [ext_resource type="Script" path="res://scripts/resources.gd" id="1_bt87s"]
@@ -11,13 +11,9 @@
 [ext_resource type="Script" path="res://scripts/labels/reputation_value_label.gd" id="8_gth0k"]
 [ext_resource type="Script" path="res://scripts/labels/wealth_value_label.gd" id="9_ywuh8"]
 [ext_resource type="Script" path="res://scripts/labels/wisdom_value_label.gd" id="10_wjenx"]
-[ext_resource type="Script" path="res://wood_value_label.gd" id="11_bbiol"]
 [ext_resource type="Script" path="res://scripts/labels/gathering_experience_value_label.gd" id="11_hly2g"]
 [ext_resource type="Script" path="res://scripts/labels/socializing_experience_value_label.gd" id="12_vqc0p"]
-[ext_resource type="Script" path="res://ore_value_label.gd" id="12_wbjjh"]
-[ext_resource type="Script" path="res://charcoal_value_label.gd" id="13_0xhbk"]
 [ext_resource type="Script" path="res://scripts/labels/studying_experience_value_label.gd" id="13_pgquw"]
-[ext_resource type="Script" path="res://ingot_value_label.gd" id="14_148gm"]
 [ext_resource type="Script" path="res://scripts/labels/trading_experience_value_label.gd" id="14_spt21"]
 [ext_resource type="Script" path="res://scripts/labels/training_experience_value_label.gd" id="15_wtx2c"]
 [ext_resource type="Script" path="res://scripts/labels/working_experience_value_label.gd" id="16_pp6np"]
@@ -37,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 4
+current_tab = 2
 script = ExtResource("1_7avu0")
 
 [node name="MainView" type="Control" parent="UserInterface"]
@@ -129,8 +125,7 @@ layout_mode = 2
 text = "NA"
 script = ExtResource("10_wjenx")
 
-[node name="ActivitiesView" type="Control" parent="UserInterface" node_paths=PackedStringArray("activityTimer", "liveButton", "craftButton", "gatherButton", "socializeButton", "studyButton", "tradeButton", "trainButton", "workButton", "worshipButton", "gatherOreButton", "gatherWoodButton", "craftCharcoalButton", "craftIngotButton")]
-visible = false
+[node name="ActivitiesView" type="Control" parent="UserInterface" node_paths=PackedStringArray("activityTimer", "liveButton", "craftButton", "gatherButton", "socializeButton", "studyButton", "tradeButton", "trainButton", "workButton", "worshipButton", "gatherOreButton", "gatherWoodButton")]
 layout_mode = 2
 script = ExtResource("3_em3eb")
 activityTimer = NodePath("ActivitiesTimer")
@@ -145,8 +140,6 @@ workButton = NodePath("HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer
 worshipButton = NodePath("HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/WorshipButton")
 gatherOreButton = NodePath("HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/GatherOreButton")
 gatherWoodButton = NodePath("HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/GatherWoodButton")
-craftCharcoalButton = NodePath("HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/CraftCharcoalButton")
-craftIngotButton = NodePath("HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/CraftIngotButton")
 metadata/_tab_index = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ActivitiesView"]
@@ -233,25 +226,15 @@ theme_override_constants/margin_bottom = 16
 [node name="SubActivitiesVBoxContainer" type="VBoxContainer" parent="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="GatherWoodButton" type="Button" parent="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer"]
-visible = false
-layout_mode = 2
-text = "gather wood"
-
 [node name="GatherOreButton" type="Button" parent="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer"]
 visible = false
 layout_mode = 2
 text = "gather ore"
 
-[node name="CraftCharcoalButton" type="Button" parent="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer"]
+[node name="GatherWoodButton" type="Button" parent="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer"]
 visible = false
 layout_mode = 2
-text = "craft charcoal"
-
-[node name="CraftIngotButton" type="Button" parent="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer"]
-visible = false
-layout_mode = 2
-text = "craft ingot"
+text = "gather wood"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UserInterface/ActivitiesView/HBoxContainer"]
 layout_mode = 2
@@ -264,66 +247,9 @@ layout_mode = 2
 metadata/_tab_index = 3
 
 [node name="ResourcesView" type="Control" parent="UserInterface"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ResourcesView"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface/ResourcesView/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="WoodLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "wood"
-
-[node name="OreLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "ore"
-
-[node name="CharcoalLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "charcoal"
-
-[node name="IngotLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "ingot"
-
-[node name="MarginContainer2" type="MarginContainer" parent="UserInterface/ResourcesView/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer2"]
-layout_mode = 2
-
-[node name="WoodValueLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer2/VBoxContainer2"]
-layout_mode = 2
-text = "NA"
-script = ExtResource("11_bbiol")
-
-[node name="OreValueLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer2/VBoxContainer2"]
-layout_mode = 2
-text = "NA"
-script = ExtResource("12_wbjjh")
-
-[node name="CharcoalValueLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer2/VBoxContainer2"]
-layout_mode = 2
-script = ExtResource("13_0xhbk")
-
-[node name="IngotValueLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer2/VBoxContainer2"]
-layout_mode = 2
-script = ExtResource("14_148gm")
 
 [node name="ExperienceView" type="Control" parent="UserInterface"]
 visible = false
@@ -441,8 +367,6 @@ metadata/_tab_index = 6
 [connection signal="pressed" from="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/TrainButton" to="UserInterface/ActivitiesView" method="_on_train_button_pressed"]
 [connection signal="pressed" from="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/WorkButton" to="UserInterface/ActivitiesView" method="_on_work_button_pressed"]
 [connection signal="pressed" from="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ActivitiesHBoxContainer/VBoxContainer2/WorshipButton" to="UserInterface/ActivitiesView" method="_on_worship_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/GatherWoodButton" to="UserInterface/ActivitiesView" method="_on_gather_wood_button_pressed"]
 [connection signal="pressed" from="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/GatherOreButton" to="UserInterface/ActivitiesView" method="_on_gather_ore_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/CraftCharcoalButton" to="UserInterface/ActivitiesView" method="_on_craft_charcoal_button_pressed"]
-[connection signal="pressed" from="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/CraftIngotButton" to="UserInterface/ActivitiesView" method="_on_craft_ingot_button_pressed"]
+[connection signal="pressed" from="UserInterface/ActivitiesView/HBoxContainer/VBoxContainer/MarginContainer2/SubActivitiesVBoxContainer/GatherWoodButton" to="UserInterface/ActivitiesView" method="_on_gather_wood_button_pressed"]
 [connection signal="timeout" from="UserInterface/ActivitiesView/ActivitiesTimer" to="UserInterface/ActivitiesView" method="_on_activities_timer_timeout"]
