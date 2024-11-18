@@ -407,7 +407,7 @@ offset_bottom = 40.0
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer"]
@@ -465,7 +465,7 @@ script = ExtResource("27_3nfyl")
 
 [node name="MarginContainer2" type="MarginContainer" parent="UserInterface/ExperienceView/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
+theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
