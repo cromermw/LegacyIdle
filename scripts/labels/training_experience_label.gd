@@ -1,4 +1,4 @@
-class_name LabelTrainingExperience
+class_name LabelTraining
 extends Label
 
 func _process(_delta: float) -> void:

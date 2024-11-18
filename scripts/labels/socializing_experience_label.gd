@@ -1,4 +1,4 @@
-class_name LabelSocializingExperience
+class_name LabelSocializing
 extends Label
 
 func _process(_delta: float) -> void:

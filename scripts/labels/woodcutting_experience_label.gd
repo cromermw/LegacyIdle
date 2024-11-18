@@ -1,4 +1,4 @@
-class_name LabelWoodcuttingExperience
+class_name LabelWoodcutting
 extends Label
 
 func _process(_delta: float) -> void:

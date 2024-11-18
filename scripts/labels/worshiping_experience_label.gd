@@ -1,4 +1,4 @@
-class_name LabelWorshipingExperience
+class_name LabelWorshiping
 extends Label
 
 func _process(_delta: float) -> void:

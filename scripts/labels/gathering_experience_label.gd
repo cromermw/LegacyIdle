@@ -1,4 +1,4 @@
-class_name LabelGatheringExperience
+class_name LabelGathering
 extends Label
 
 func _process(_delta: float) -> void:

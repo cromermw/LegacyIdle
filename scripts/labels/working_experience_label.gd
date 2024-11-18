@@ -1,4 +1,4 @@
-class_name LabelWorkingExperience
+class_name LabelWorking
 extends Label
 
 func _process(_delta: float) -> void:

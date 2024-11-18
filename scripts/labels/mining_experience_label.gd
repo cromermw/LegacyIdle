@@ -1,4 +1,4 @@
-class_name LabelMiningExperience
+class_name LabelMining
 extends Label
 
 func _process(_delta: float) -> void:

@@ -1,4 +1,4 @@
-class_name LabelTradingExperience
+class_name LabelTrading
 extends Label
 
 func _process(_delta: float) -> void:

@@ -22,6 +22,23 @@ extends Resource
 @export var woodcutting_experience : float = 0
 @export var mining_experience : float = 0
 
+##levels
+
+@export var crafting_level : int = 0
+@export var gathering_level : int = 0
+@export var socializing_level : int = 0
+@export var studying_level : int = 0
+@export var trading_level : int = 0
+@export var training_level : int = 0
+@export var working_level : int = 0
+@export var worshiping_level : int = 0
+@export var woodcutting_level : int = 0
+@export var mining_level : int = 0
+
+
+
+
+
 ##resources
 @export var wood : int = 0
 @export var ore : int = 0
