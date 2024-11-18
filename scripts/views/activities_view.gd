@@ -88,43 +88,47 @@ func _on_activities_timer_timeout() -> void:
 	elif activityButton == craftButton:
 		HandlerResources.ref.create_attribute(4, 1)
 		HandlerResources.ref.create_attribute(5, 1)
-		HandlerResources.ref.award_experience(0, 2)
+		HandlerResources.ref.award_experience(0, 1)
 	elif activityButton == gatherButton:
 		HandlerResources.ref.create_attribute(2, 1)
 		HandlerResources.ref.create_attribute(5, 1)
-		HandlerResources.ref.award_experience(1, 2)
+		HandlerResources.ref.award_experience(1, 1)
 	elif activityButton == socializeButton:
 		HandlerResources.ref.create_attribute(0, 2)
-		HandlerResources.ref.award_experience(2, 2)
+		HandlerResources.ref.award_experience(2, 1)
 	elif activityButton == studyButton:
 		HandlerResources.ref.create_attribute(4, 2)
-		HandlerResources.ref.award_experience(3, 2)
+		HandlerResources.ref.award_experience(3, 1)
 	elif activityButton == tradeButton:
 		HandlerResources.ref.create_attribute(3, 1)
 		HandlerResources.ref.create_attribute(5, 1)
-		HandlerResources.ref.award_experience(4, 2)
+		HandlerResources.ref.award_experience(4, 1)
 	elif activityButton == trainButton:
 		HandlerResources.ref.create_attribute(2, 2)
-		HandlerResources.ref.award_experience(5, 2)
+		HandlerResources.ref.award_experience(5, 1)
 	elif activityButton == workButton:
 		HandlerResources.ref.create_attribute(3, 2)
-		HandlerResources.ref.award_experience(6, 2)
+		HandlerResources.ref.award_experience(6, 1)
 	elif activityButton == worshipButton:
 		HandlerResources.ref.create_attribute(1, 2)
-		HandlerResources.ref.award_experience(7, 2)
+		HandlerResources.ref.award_experience(7, 1)
 	else:
 		pass
 
 	if subActivityButton == gatherWoodButton:
 		HandlerResources.ref.create_resource(0, 1)
+		HandlerResources.ref.award_experience(1, 2)
 	elif subActivityButton == gatherOreButton:
 		HandlerResources.ref.create_resource(1, 1)
+		HandlerResources.ref.award_experience(1, 2)
 	elif subActivityButton == craftCharcoalButton:
 		if HandlerResources.ref.consume_resource(0, 1) == Error.OK:
 			HandlerResources.ref.create_resource(2, 1)
+			HandlerResources.ref.award_experience(0, 2)
 	elif subActivityButton == craftIngotButton:
 		if HandlerResources.ref.consume_resource(1, 1) == Error.OK and HandlerResources.ref.consume_resource(2, 1) == Error.OK:
 			HandlerResources.ref.create_resource(3, 1)
+			HandlerResources.ref.award_experience(0, 2)
 	else:
 		pass
 
