@@ -117,10 +117,10 @@ func _on_activities_timer_timeout() -> void:
 
 	if subActivityButton == gatherWoodButton:
 		HandlerResources.ref.create_resource(0, 1)
-		HandlerResources.ref.award_experience(1, 2)
+		HandlerResources.ref.award_experience(8, 1)
 	elif subActivityButton == gatherOreButton:
 		HandlerResources.ref.create_resource(1, 1)
-		HandlerResources.ref.award_experience(1, 2)
+		HandlerResources.ref.award_experience(9, 1)
 	elif subActivityButton == craftCharcoalButton:
 		if HandlerResources.ref.consume_resource(0, 1) == Error.OK:
 			HandlerResources.ref.create_resource(2, 1)

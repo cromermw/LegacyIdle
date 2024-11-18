@@ -19,6 +19,8 @@ extends Resource
 @export var training_experience : float = 0
 @export var working_experience : float = 0
 @export var worshiping_experience : float = 0
+@export var woodcutting_experience : float = 0
+@export var mining_experience : float = 0
 
 ##resources
 @export var wood : int = 0
@@ -26,17 +28,25 @@ extends Resource
 @export var charcoal : int = 0
 @export var ingot : int = 0
 
-##multipliers and other upgrades
+##multipliers
 @export var reward_multiplier : float = 1
 @export var experience_multiplier : float = 1
 @export var resource_multiplier : float = 1
-@export var resource_reduction_multiplier : float = 1
 @export var wood_multiplier : float = 1
 @export var ore_multiplier : float = 1
 @export var charcoal_multiplier : float = 1
 @export var ingot_multiplier : float = 1
+@export var resource_reduction_multiplier : float = 1
 @export var wood_reduction_multiplier : float = 1
 @export var ore_reduction_multiplier : float = 1
 @export var charcoal_reduction_multiplier : float = 1
 @export var ingot_reduction_multiplier : float = 1
+@export var title_requirement_multiplier : float = 1
+@export var title_requirement_reduction_multiplier : float = 1
+
+##misc
 @export var num_rewards : int = 2
+
+##titles
+@export var woodcutter_title_unlocked : bool = false
+@export var miner_title_unlocked : bool = false

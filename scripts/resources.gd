@@ -16,15 +16,6 @@ func _enter_tree() -> void:
 	queue_free()
 
 
-func unlock_title() -> void:
-	pass
-
-
-## lock a title if it is made irrelevant by a higher title
-func lock_title() -> void:
-	pass
-
-
 func create_attribute(attribute : int, amount : float) -> void:
 	if attribute == 0:
 		Game.ref.data.reputation += amount*Game.ref.data.reward_multiplier
@@ -78,8 +69,6 @@ func consume_resource(resource : int, amount : int) -> Error:
 	return Error.FAILED
 
 
-
-
 func consume_attribute(attribute : int, amount : float):
 	if attribute == 0:
 		if amount > Game.ref.data.reputation:
@@ -119,12 +108,6 @@ func consume_attribute(attribute : int, amount : float):
 			return Error.OK
 
 
-
-
-
-
-
-
 func award_experience(category : int, amount : float) -> void:
 	if category == 0:
 		Game.ref.data.crafting_experience += amount*Game.ref.data.experience_multiplier
@@ -141,4 +124,24 @@ func award_experience(category : int, amount : float) -> void:
 	elif category == 6:
 		Game.ref.data.working_experience += amount*Game.ref.data.experience_multiplier
 	elif category == 7:
-		Game.ref.data.worshiping_experience += amount*Game.ref.data.experience_multiplier	
+		Game.ref.data.worshiping_experience += amount*Game.ref.data.experience_multiplier
+	elif category == 8:
+		Game.ref.data.woodcutting_experience += amount*Game.ref.data.experience_multiplier
+	elif category == 9:
+		Game.ref.data.mining_experience += amount*Game.ref.data.experience_multiplier		
+
+func apply_multiplier(multiplier, value) -> void:
+	if multiplier == 0:
+		Game.ref.data.reward_multiplier *= value
+	if multiplier == 1:
+		Game.ref.data.experience_multiplier *= value
+	if multiplier == 2:
+		Game.ref.data.resource_multiplier *= value
+	if multiplier == 3:
+		Game.ref.data.wood_multiplier *= value
+	if multiplier == 4:
+		Game.ref.data.ore_multiplier *= value
+	if multiplier == 5:
+		Game.ref.data.charcoal_multiplier *= value
+	if multiplier == 6:
+		Game.ref.data.ingot_multiplier *= value

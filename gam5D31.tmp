@@ -1,9 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://testy7i32cfh"]
+[gd_scene load_steps=31 format=3 uid="uid://testy7i32cfh"]
 
 [ext_resource type="Script" path="res://scripts/user_interface.gd" id="1_7avu0"]
 [ext_resource type="Script" path="res://scripts/resources.gd" id="1_bt87s"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_wwnj8"]
-[ext_resource type="Script" path="res://titles.gd" id="3_1jd8u"]
 [ext_resource type="Script" path="res://scripts/views/activities_view.gd" id="3_em3eb"]
 [ext_resource type="Script" path="res://scripts/labels/education_value_label.gd" id="4_uyohq"]
 [ext_resource type="Script" path="res://scripts/labels/crafting_experience_value_label.gd" id="5_r66f1"]
@@ -14,33 +13,23 @@
 [ext_resource type="Script" path="res://scripts/labels/wisdom_value_label.gd" id="10_wjenx"]
 [ext_resource type="Script" path="res://scripts/labels/wood_value_label.gd" id="11_bbiol"]
 [ext_resource type="Script" path="res://scripts/labels/gathering_experience_value_label.gd" id="11_hly2g"]
-[ext_resource type="Script" path="res://titles_view.gd" id="11_pwqx8"]
-[ext_resource type="Script" path="res://woodcutter_title.gd" id="12_if0pi"]
 [ext_resource type="Script" path="res://scripts/labels/socializing_experience_value_label.gd" id="12_vqc0p"]
 [ext_resource type="Script" path="res://scripts/labels/ore_value_label.gd" id="12_wbjjh"]
 [ext_resource type="Script" path="res://scripts/labels/charcoal_value_label.gd" id="13_0xhbk"]
 [ext_resource type="Script" path="res://scripts/labels/studying_experience_value_label.gd" id="13_pgquw"]
 [ext_resource type="Script" path="res://scripts/labels/ingot_value_label.gd" id="14_148gm"]
-[ext_resource type="Script" path="res://miner_title.gd" id="14_l3tuv"]
 [ext_resource type="Script" path="res://scripts/labels/trading_experience_value_label.gd" id="14_spt21"]
-[ext_resource type="Script" path="res://woodcutter_title_label.gd" id="15_t1l0h"]
 [ext_resource type="Script" path="res://scripts/labels/crafting_experience_label.gd" id="15_vxagy"]
 [ext_resource type="Script" path="res://scripts/labels/training_experience_value_label.gd" id="15_wtx2c"]
 [ext_resource type="Script" path="res://scripts/labels/gathering_experience_label.gd" id="16_aocl2"]
-[ext_resource type="Script" path="res://miner_title_label.gd" id="16_cb5va"]
 [ext_resource type="Script" path="res://scripts/labels/working_experience_value_label.gd" id="16_pp6np"]
 [ext_resource type="Script" path="res://scripts/labels/socializing_experience_label.gd" id="17_0yiyx"]
-[ext_resource type="Script" path="res://experience_view.gd" id="17_rexkj"]
 [ext_resource type="Script" path="res://scripts/labels/worshiping_experience_value_label.gd" id="17_yu0bn"]
 [ext_resource type="Script" path="res://scripts/labels/studying_experience_label.gd" id="18_d1f2y"]
 [ext_resource type="Script" path="res://scripts/labels/trading_experience_label.gd" id="19_u2ymj"]
 [ext_resource type="Script" path="res://scripts/labels/training_experience_label.gd" id="20_77elf"]
 [ext_resource type="Script" path="res://scripts/labels/working_experience_label.gd" id="21_0h1t2"]
 [ext_resource type="Script" path="res://scripts/labels/worshiping_experience_label.gd" id="22_vnpig"]
-[ext_resource type="Script" path="res://scripts/labels/woodcutting_experience_label.gd" id="26_qesg7"]
-[ext_resource type="Script" path="res://scripts/labels/mining_experience_label.gd" id="27_3nfyl"]
-[ext_resource type="Script" path="res://scripts/labels/woodcutting_experience_value_label.gd" id="36_xkpc1"]
-[ext_resource type="Script" path="res://scripts/labels/mining_experience_value_label.gd" id="37_3hen2"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wwnj8")
@@ -50,16 +39,13 @@ script = ExtResource("1_wwnj8")
 [node name="Resources" type="Node" parent="Handlers"]
 script = ExtResource("1_bt87s")
 
-[node name="Titles" type="Node" parent="Handlers"]
-script = ExtResource("3_1jd8u")
-
 [node name="UserInterface" type="TabContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 3
+current_tab = 4
 script = ExtResource("1_7avu0")
 
 [node name="MainView" type="Control" parent="UserInterface"]
@@ -281,49 +267,11 @@ layout_mode = 2
 [node name="ActivitiesTimer" type="Timer" parent="UserInterface/ActivitiesView"]
 
 [node name="TitlesView" type="Control" parent="UserInterface"]
+visible = false
 layout_mode = 2
-script = ExtResource("11_pwqx8")
 metadata/_tab_index = 3
 
-[node name="LumberjackTitle" type="Control" parent="UserInterface/TitlesView"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("12_if0pi")
-
-[node name="MinerTitle" type="Control" parent="UserInterface/TitlesView"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("14_l3tuv")
-
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface/TitlesView"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/TitlesView/MarginContainer"]
-layout_mode = 2
-
-[node name="LumberjackTitleLabel" type="Label" parent="UserInterface/TitlesView/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "woodcutter:
-gather wood x2"
-script = ExtResource("15_t1l0h")
-
-[node name="MinerTitleLabel" type="Label" parent="UserInterface/TitlesView/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "miner:
-gather ore x2"
-script = ExtResource("16_cb5va")
-
 [node name="ResourcesView" type="Control" parent="UserInterface"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
@@ -380,18 +328,15 @@ script = ExtResource("12_wbjjh")
 
 [node name="CharcoalValueLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer2/VBoxContainer2"]
 layout_mode = 2
-text = "NA"
 script = ExtResource("13_0xhbk")
 
 [node name="IngotValueLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer2/VBoxContainer2"]
 layout_mode = 2
-text = "NA"
 script = ExtResource("14_148gm")
 
 [node name="ExperienceView" type="Control" parent="UserInterface"]
 visible = false
 layout_mode = 2
-script = ExtResource("17_rexkj")
 metadata/_tab_index = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView"]
@@ -449,16 +394,6 @@ layout_mode = 2
 text = "worshiping experience:"
 script = ExtResource("22_vnpig")
 
-[node name="WoodcuttingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "woodcutting experience"
-script = ExtResource("26_qesg7")
-
-[node name="MiningExperienceLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "mining experience"
-script = ExtResource("27_3nfyl")
-
 [node name="MarginContainer2" type="MarginContainer" parent="UserInterface/ExperienceView/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -508,14 +443,6 @@ script = ExtResource("16_pp6np")
 layout_mode = 2
 text = "NA"
 script = ExtResource("17_yu0bn")
-
-[node name="WoodcuttingExperienceValueLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
-layout_mode = 2
-script = ExtResource("36_xkpc1")
-
-[node name="MiningExperienceValueLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
-layout_mode = 2
-script = ExtResource("37_3hen2")
 
 [node name="LegacyView" type="Control" parent="UserInterface"]
 visible = false

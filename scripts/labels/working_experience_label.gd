@@ -1,4 +1,4 @@
-class_name LabelWorkingExperienceValue
+class_name LabelWorkingExperience
 extends Label
 
 func _process(_delta: float) -> void:
@@ -6,7 +6,3 @@ func _process(_delta: float) -> void:
 		visible = true
 	else:
 		visible = false
-	update_text()	
-	
-func update_text() -> void:
-	text = str(Game.ref.data.working_experience)
