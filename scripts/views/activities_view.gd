@@ -168,7 +168,7 @@ func manage_sub_activity_buttons() -> void:
 		else:
 			craftCharcoalButton.disabled = false
 			craftCharcoalButton.visible = false
-		if Game.ref.data.charcoal > 0 and Game.ref.data.ore > 0:
+		if Game.ref.data.charcoal > 0 and Game.ref.data.ore > 0 and Game.ref.data.crafting_level > 1:
 			craftIngotButton.visible = true
 		else:
 			craftIngotButton.disabled = false

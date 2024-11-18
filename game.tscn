@@ -1,10 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://testy7i32cfh"]
+[gd_scene load_steps=56 format=3 uid="uid://testy7i32cfh"]
 
 [ext_resource type="Script" path="res://scripts/user_interface.gd" id="1_7avu0"]
-[ext_resource type="Script" path="res://scripts/resources.gd" id="1_bt87s"]
+[ext_resource type="Script" path="res://scripts/handlers/resources.gd" id="1_bt87s"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_wwnj8"]
-[ext_resource type="Script" path="res://experience.gd" id="2_t42hu"]
-[ext_resource type="Script" path="res://titles.gd" id="3_1jd8u"]
+[ext_resource type="Script" path="res://scripts/handlers/experience.gd" id="2_t42hu"]
+[ext_resource type="Script" path="res://scripts/handlers/titles.gd" id="3_1jd8u"]
 [ext_resource type="Script" path="res://scripts/views/activities_view.gd" id="3_em3eb"]
 [ext_resource type="Script" path="res://scripts/labels/education_value_label.gd" id="4_uyohq"]
 [ext_resource type="Script" path="res://scripts/labels/crafting_level_label.gd" id="5_r66f1"]
@@ -15,33 +15,46 @@
 [ext_resource type="Script" path="res://scripts/labels/wisdom_value_label.gd" id="10_wjenx"]
 [ext_resource type="Script" path="res://scripts/labels/wood_value_label.gd" id="11_bbiol"]
 [ext_resource type="Script" path="res://scripts/labels/gathering_level_label.gd" id="11_hly2g"]
-[ext_resource type="Script" path="res://titles_view.gd" id="11_pwqx8"]
-[ext_resource type="Script" path="res://woodcutter_title.gd" id="12_if0pi"]
+[ext_resource type="Script" path="res://scripts/titles/woodcutter_title.gd" id="12_if0pi"]
 [ext_resource type="Script" path="res://scripts/labels/socializing_level_label.gd" id="12_vqc0p"]
 [ext_resource type="Script" path="res://scripts/labels/ore_value_label.gd" id="12_wbjjh"]
 [ext_resource type="Script" path="res://scripts/labels/charcoal_value_label.gd" id="13_0xhbk"]
 [ext_resource type="Script" path="res://scripts/labels/studying_level_label.gd" id="13_pgquw"]
 [ext_resource type="Script" path="res://scripts/labels/ingot_value_label.gd" id="14_148gm"]
-[ext_resource type="Script" path="res://miner_title.gd" id="14_l3tuv"]
+[ext_resource type="Script" path="res://scripts/titles/miner_title.gd" id="14_l3tuv"]
 [ext_resource type="Script" path="res://scripts/labels/trading_level_label.gd" id="14_spt21"]
-[ext_resource type="Script" path="res://woodcutter_title_label.gd" id="15_t1l0h"]
-[ext_resource type="Script" path="res://scripts/labels/crafting_experience_label.gd" id="15_vxagy"]
+[ext_resource type="Script" path="res://scripts/labels/woodcutter_title_label.gd" id="15_t1l0h"]
+[ext_resource type="Script" path="res://scripts/labels/crafting_label.gd" id="15_vxagy"]
 [ext_resource type="Script" path="res://scripts/labels/training_level_label.gd" id="15_wtx2c"]
-[ext_resource type="Script" path="res://scripts/labels/gathering_experience_label.gd" id="16_aocl2"]
-[ext_resource type="Script" path="res://miner_title_label.gd" id="16_cb5va"]
+[ext_resource type="Script" path="res://scripts/labels/gathering_label.gd" id="16_aocl2"]
+[ext_resource type="Script" path="res://scripts/labels/miner_title_label.gd" id="16_cb5va"]
 [ext_resource type="Script" path="res://scripts/labels/working_level_label.gd" id="16_pp6np"]
-[ext_resource type="Script" path="res://scripts/labels/socializing_experience_label.gd" id="17_0yiyx"]
-[ext_resource type="Script" path="res://experience_view.gd" id="17_rexkj"]
+[ext_resource type="Script" path="res://scripts/labels/socializing_label.gd" id="17_0yiyx"]
+[ext_resource type="Script" path="res://wood_label.gd" id="17_oqij2"]
+[ext_resource type="Script" path="res://scripts/views/experience_view.gd" id="17_rexkj"]
 [ext_resource type="Script" path="res://scripts/labels/worshiping_level_label.gd" id="17_yu0bn"]
-[ext_resource type="Script" path="res://scripts/labels/studying_experience_label.gd" id="18_d1f2y"]
-[ext_resource type="Script" path="res://scripts/labels/trading_experience_label.gd" id="19_u2ymj"]
-[ext_resource type="Script" path="res://scripts/labels/training_experience_label.gd" id="20_77elf"]
-[ext_resource type="Script" path="res://scripts/labels/working_experience_label.gd" id="21_0h1t2"]
-[ext_resource type="Script" path="res://scripts/labels/worshiping_experience_label.gd" id="22_vnpig"]
-[ext_resource type="Script" path="res://scripts/labels/woodcutting_experience_label.gd" id="26_qesg7"]
-[ext_resource type="Script" path="res://scripts/labels/mining_experience_label.gd" id="27_3nfyl"]
+[ext_resource type="Script" path="res://ore_label.gd" id="18_4oqxa"]
+[ext_resource type="Script" path="res://scripts/labels/studying_label.gd" id="18_d1f2y"]
+[ext_resource type="Script" path="res://charcoal_label.gd" id="19_mr8oh"]
+[ext_resource type="Script" path="res://scripts/labels/trading_label.gd" id="19_u2ymj"]
+[ext_resource type="Script" path="res://scripts/labels/training_label.gd" id="20_77elf"]
+[ext_resource type="Script" path="res://ingot_label.gd" id="20_bgbom"]
+[ext_resource type="Script" path="res://scripts/labels/working_label.gd" id="21_0h1t2"]
+[ext_resource type="Script" path="res://scripts/labels/worshiping_label.gd" id="22_vnpig"]
+[ext_resource type="Script" path="res://crafting_experience_label.gd" id="25_yrrv3"]
+[ext_resource type="Script" path="res://scripts/labels/woodcutting_label.gd" id="26_qesg7"]
+[ext_resource type="Script" path="res://scripts/labels/mining_label.gd" id="27_3nfyl"]
+[ext_resource type="Script" path="res://gathering_experience_label.gd" id="28_yhlom"]
+[ext_resource type="Script" path="res://socializing_experience_label.gd" id="31_4t225"]
+[ext_resource type="Script" path="res://studying_experience_label.gd" id="34_1a8yy"]
 [ext_resource type="Script" path="res://scripts/labels/woodcutting_level_label.gd" id="36_xkpc1"]
 [ext_resource type="Script" path="res://scripts/labels/mining_level_label.gd" id="37_3hen2"]
+[ext_resource type="Script" path="res://trading_experience_label.gd" id="37_vcqte"]
+[ext_resource type="Script" path="res://training_experience_label.gd" id="40_histj"]
+[ext_resource type="Script" path="res://working_experience_label.gd" id="43_epmy6"]
+[ext_resource type="Script" path="res://worshiping_experience_label.gd" id="46_fykyg"]
+[ext_resource type="Script" path="res://woodcutting_experience_label.gd" id="49_m4btv"]
+[ext_resource type="Script" path="res://mining_experience_label.gd" id="52_efvks"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wwnj8")
@@ -287,10 +300,9 @@ layout_mode = 2
 [node name="TitlesView" type="Control" parent="UserInterface"]
 visible = false
 layout_mode = 2
-script = ExtResource("11_pwqx8")
 metadata/_tab_index = 3
 
-[node name="LumberjackTitle" type="Control" parent="UserInterface/TitlesView"]
+[node name="WoodcutterTitle" type="Control" parent="UserInterface/TitlesView"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -303,25 +315,32 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("14_l3tuv")
 
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface/TitlesView"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/TitlesView"]
+layout_mode = 2
+offset_right = 120.0
+offset_bottom = 102.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/TitlesView/VBoxContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/TitlesView/MarginContainer"]
-layout_mode = 2
-
-[node name="LumberjackTitleLabel" type="Label" parent="UserInterface/TitlesView/MarginContainer/VBoxContainer"]
+[node name="LumberjackTitleLabel" type="Label" parent="UserInterface/TitlesView/VBoxContainer/MarginContainer"]
 layout_mode = 2
 text = "woodcutter:
 gather wood x2"
 script = ExtResource("15_t1l0h")
 
-[node name="MinerTitleLabel" type="Label" parent="UserInterface/TitlesView/MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="UserInterface/TitlesView/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="MinerTitleLabel" type="Label" parent="UserInterface/TitlesView/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "miner:
 gather ore x2"
@@ -350,18 +369,22 @@ layout_mode = 2
 [node name="WoodLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "wood"
+script = ExtResource("17_oqij2")
 
 [node name="OreLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "ore"
+script = ExtResource("18_4oqxa")
 
 [node name="CharcoalLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "charcoal"
+script = ExtResource("19_mr8oh")
 
 [node name="IngotLabel" type="Label" parent="UserInterface/ResourcesView/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "ingot"
+script = ExtResource("20_bgbom")
 
 [node name="MarginContainer2" type="MarginContainer" parent="UserInterface/ResourcesView/HBoxContainer"]
 layout_mode = 2
@@ -398,130 +421,302 @@ layout_mode = 2
 script = ExtResource("17_rexkj")
 metadata/_tab_index = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface/ExperienceView/HBoxContainer"]
-layout_mode = 2
+[node name="ScrollMargin" type="MarginContainer" parent="UserInterface/ExperienceView"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 200.0
+grow_vertical = 2
 theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="CraftingLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "crafting:"
-script = ExtResource("15_vxagy")
-
-[node name="GatheringLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "gathering:"
-script = ExtResource("16_aocl2")
-
-[node name="SocializingLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "socializing:"
-script = ExtResource("17_0yiyx")
-
-[node name="StudyingLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "studying:"
-script = ExtResource("18_d1f2y")
-
-[node name="TradingLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "trading:"
-script = ExtResource("19_u2ymj")
-
-[node name="TrainingLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "training:"
-script = ExtResource("20_77elf")
-
-[node name="WorkingLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "working:"
-script = ExtResource("21_0h1t2")
-
-[node name="WorshipingLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "worshiping:"
-script = ExtResource("22_vnpig")
-
-[node name="WoodcuttingLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "woodcutting:"
-script = ExtResource("26_qesg7")
-
-[node name="MiningLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "mining:"
-script = ExtResource("27_3nfyl")
-
-[node name="MarginContainer2" type="MarginContainer" parent="UserInterface/ExperienceView/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UserInterface/ExperienceView/ScrollMargin"]
 layout_mode = 2
 
-[node name="CraftingLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer"]
+layout_mode = 2
+
+[node name="CraftingMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="CraftingVBox" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/CraftingMargin"]
+layout_mode = 2
+
+[node name="CraftingHBox" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/CraftingMargin/CraftingVBox"]
+layout_mode = 2
+
+[node name="CraftingLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/CraftingMargin/CraftingVBox/CraftingHBox"]
+layout_mode = 2
+text = "crafting level "
+script = ExtResource("15_vxagy")
+
+[node name="CraftingLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/CraftingMargin/CraftingVBox/CraftingHBox"]
 layout_mode = 2
 text = "NA"
 script = ExtResource("5_r66f1")
 
-[node name="GatheringLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="CraftingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/CraftingMargin/CraftingVBox"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("25_yrrv3")
+
+[node name="GatheringMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="GatheringVBox" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/GatheringMargin"]
+layout_mode = 2
+
+[node name="GatheringHBox" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/GatheringMargin/GatheringVBox"]
+layout_mode = 2
+
+[node name="GatheringLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/GatheringMargin/GatheringVBox/GatheringHBox"]
+layout_mode = 2
+text = "gathering:"
+script = ExtResource("16_aocl2")
+
+[node name="GatheringLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/GatheringMargin/GatheringVBox/GatheringHBox"]
 layout_mode = 2
 text = "NA"
 script = ExtResource("11_hly2g")
 
-[node name="SocializingLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="GatheringExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/GatheringMargin/GatheringVBox"]
 layout_mode = 2
 text = "NA"
-script = ExtResource("12_vqc0p")
+script = ExtResource("28_yhlom")
 
-[node name="StudyingLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="WoodcuttingMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "NA"
-script = ExtResource("13_pgquw")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
 
-[node name="TradingLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WoodcuttingMargin"]
 layout_mode = 2
-text = "NA"
-script = ExtResource("14_spt21")
 
-[node name="TrainingLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WoodcuttingMargin/VBoxContainer"]
 layout_mode = 2
-text = "NA"
-script = ExtResource("15_wtx2c")
 
-[node name="WorkingLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="WoodcuttingLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WoodcuttingMargin/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "NA"
-script = ExtResource("16_pp6np")
+text = "woodcutting:"
+script = ExtResource("26_qesg7")
 
-[node name="WorshipingLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
-layout_mode = 2
-text = "NA"
-script = ExtResource("17_yu0bn")
-
-[node name="WoodcuttingLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="WoodcuttingLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WoodcuttingMargin/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "NA"
 script = ExtResource("36_xkpc1")
 
-[node name="MiningLevelLabel" type="Label" parent="UserInterface/ExperienceView/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="WoodcuttingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WoodcuttingMargin/VBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("49_m4btv")
+
+[node name="MiningMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/MiningMargin"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/MiningMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="MiningLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/MiningMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "mining:"
+script = ExtResource("27_3nfyl")
+
+[node name="MiningLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/MiningMargin/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "NA"
 script = ExtResource("37_3hen2")
+
+[node name="MiningExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/MiningMargin/VBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("52_efvks")
+
+[node name="SocializingMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/SocializingMargin"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/SocializingMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="SocializingLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/SocializingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "socializing:"
+script = ExtResource("17_0yiyx")
+
+[node name="SocializingLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/SocializingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("12_vqc0p")
+
+[node name="SocializingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/SocializingMargin/VBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("31_4t225")
+
+[node name="StudyingMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/StudyingMargin"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/StudyingMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="StudyingLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/StudyingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "studying:"
+script = ExtResource("18_d1f2y")
+
+[node name="StudyingLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/StudyingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("13_pgquw")
+
+[node name="StudyingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/StudyingMargin/VBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("34_1a8yy")
+
+[node name="TradingMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TradingMargin"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TradingMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="TradingLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TradingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "trading:"
+script = ExtResource("19_u2ymj")
+
+[node name="TradingLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TradingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("14_spt21")
+
+[node name="TradingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TradingMargin/VBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("37_vcqte")
+
+[node name="TrainingMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TrainingMargin"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TrainingMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="TrainingLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TrainingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "training:"
+script = ExtResource("20_77elf")
+
+[node name="TrainingLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TrainingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("15_wtx2c")
+
+[node name="TrainingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/TrainingMargin/VBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("40_histj")
+
+[node name="WorkingMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorkingMargin"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorkingMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="WorkingLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorkingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "working:"
+script = ExtResource("21_0h1t2")
+
+[node name="WorkingLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorkingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("16_pp6np")
+
+[node name="WorkingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorkingMargin/VBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("43_epmy6")
+
+[node name="WorshipingMargin" type="MarginContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorshipingMargin"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorshipingMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="WorshipingLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorshipingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "worshiping:"
+script = ExtResource("22_vnpig")
+
+[node name="WorshipingLevelLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorshipingMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("17_yu0bn")
+
+[node name="WorshipingExperienceLabel" type="Label" parent="UserInterface/ExperienceView/ScrollMargin/ScrollContainer/VBoxContainer/WorshipingMargin/VBoxContainer"]
+layout_mode = 2
+text = "NA"
+script = ExtResource("46_fykyg")
 
 [node name="LegacyView" type="Control" parent="UserInterface"]
 visible = false
